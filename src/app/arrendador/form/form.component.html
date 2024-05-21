@@ -1,0 +1,42 @@
+<div class="background"></div>
+<div class="container">
+  <form action="/submit-your-form-handler" method="POST">
+
+    <label for="marca">Marca:</label><br>
+    <input type="text" id="marca" name="marca" placeholder="Marca" required [(ngModel)]="celular.marca"><br><br>
+    <div *ngIf="celular.marca.length > 4">
+      <p class="error">La marca debe tener al menos 5 caracteres</p>
+    </div>
+
+    <label for="serial">Serial:</label><br>
+    <input type="text" id="serial" name="serial" placeholder="Serial" required [(ngModel)]="celular.serial"><br><br>
+    <div *ngIf="celular.serial.length > 4">
+      <p class="error">El serial debe tener al menos 5 caracteres</p>
+    </div>
+
+    <label for="fechaDeCompra">Fecha de Compra:</label><br>
+    <input type="date" id="fechaDeCompra" name="fechaDeCompra" placeholder="Fecha de Compra" required [(ngModel)]="celular.fechaDeCompra"><br><br>
+
+    <label for="anoDeLanzamiento">Año de Lanzamiento:</label><br>
+    <input type="number" id="anoDeLanzamiento" name="anoDeLanzamiento" placeholder="Año de Lanzamiento" required [(ngModel)]="celular.anoDeLanzamiento"><br><br>
+
+    <label for="precio">Precio:</label><br>
+    <input type="number" id="precio" name="precio" placeholder="Precio" required [(ngModel)]="celular.precio"><br><br>
+
+    <label for="sistemaOperativo">Sistema Operativo:</label><br>
+    <input type="text" id="sistemaOperativo" name="sistemaOperativo" placeholder="Sistema Operativo" required [(ngModel)]="celular.sistemaOperativo"><br><br>
+    <div *ngIf="celular.sistemaOperativo.length > 4">
+      <p class="error">El sistema operativo debe tener al menos 5 caracteres</p>
+    </div>
+
+    <label for="gama">Gama:</label><br>
+    <input type="text" id="gama" name="gama" placeholder="Gama" required [(ngModel)]="celular.gama"><br><br>
+    <div *ngIf="celular.gama.length > 4">
+      <p class="error">La gama debe tener al menos 5 caracteres</p>
+    </div>
+
+    <input *ngIf="celular.id == 0" type="submit" value="Crear celular" (click)="crearCelular()">
+    <input *ngIf="celular.id != 0" type="submit" value="Actualizar celular" (click)="updateCelular()">
+    
+  </form>
+</div>
